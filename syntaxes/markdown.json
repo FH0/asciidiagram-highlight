@@ -1,0 +1,30 @@
+{
+  "scopeName": "markdown.asciidiagram",
+  "injectionSelector": "L:text.html.markdown",
+  "patterns": [
+    {
+      "begin": "^\\s*(`{3,}|~{3,})\\s*(asciidiagram)\\s*$",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.markdown"
+        },
+        "2": {
+          "name": "fenced_code.block.language.markdown"
+        }
+      },
+      "end": "^\\s*\\1\\s*$",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.markdown"
+        }
+      },
+      "name": "markup.fenced_code.block.markdown",
+      "contentName": "meta.embedded.block.asciidiagram",
+      "patterns": [
+        {
+          "include": "source.asciidiagram"
+        }
+      ]
+    }
+  ]
+}

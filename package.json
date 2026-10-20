@@ -1,0 +1,71 @@
+{
+  "name": "asciidiagram-highlight",
+  "displayName": "ASCII Diagram Highlight",
+  "description": "Color diagram lines, inside text, and outside text in Markdown source.",
+  "version": "0.0.2",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "asciidiagram",
+        "aliases": [
+          "ASCII Diagram",
+          "asciidiagram"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "asciidiagram",
+        "scopeName": "source.asciidiagram",
+        "path": "./syntaxes/asciidiagram.json"
+      },
+      {
+        "scopeName": "markdown.asciidiagram",
+        "path": "./syntaxes/markdown.json",
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.asciidiagram": "asciidiagram"
+        }
+      }
+    ],
+    "configurationDefaults": {
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": [
+              "punctuation.border.asciidiagram",
+              "keyword.connection.asciidiagram"
+            ],
+            "settings": {
+              "foreground": "#569CD6"
+            }
+          },
+          {
+            "scope": "string.inside.asciidiagram",
+            "settings": {
+              "foreground": "#D4D4D4"
+            }
+          },
+          {
+            "scope": "string.outside.asciidiagram",
+            "settings": {
+              "foreground": "#D7BA7D"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

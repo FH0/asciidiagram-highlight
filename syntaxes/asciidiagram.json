@@ -1,0 +1,32 @@
+{
+  "scopeName": "source.asciidiagram",
+  "patterns": [
+    {
+      "begin": "\u2502",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.border.asciidiagram"
+        }
+      },
+      "end": "\u2502|$",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.border.asciidiagram"
+        }
+      },
+      "contentName": "string.inside.asciidiagram"
+    },
+    {
+      "match": "[\u2500\u250c\u2510\u2514\u2518\u251c\u2524\u252c\u2534\u253c]+",
+      "name": "punctuation.border.asciidiagram"
+    },
+    {
+      "match": "<[-]+>|<[-]+|[-]+>|[|^]|(?<!\\S)v(?!\\S)|\\+[-+]+",
+      "name": "keyword.connection.asciidiagram"
+    },
+    {
+      "match": "\\S",
+      "name": "string.outside.asciidiagram"
+    }
+  ]
+}
