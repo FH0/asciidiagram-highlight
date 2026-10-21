@@ -2,31 +2,50 @@
   "scopeName": "source.asciidiagram",
   "patterns": [
     {
-      "begin": "\u2502",
+      "begin": "^([ \\t]*)(│)(?=[^\\r\\n]*│[ \\t]*$)",
       "beginCaptures": {
-        "0": {
+        "2": {
           "name": "punctuation.border.asciidiagram"
         }
       },
-      "end": "\u2502|$",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.border.asciidiagram"
+      "end": "$",
+      "contentName": "string.inside.asciidiagram",
+      "patterns": [
+        {
+          "include": "#lines"
+        },
+        {
+          "include": "#connections"
         }
-      },
-      "contentName": "string.inside.asciidiagram"
+      ]
     },
     {
-      "match": "[\u2500\u250c\u2510\u2514\u2518\u251c\u2524\u252c\u2534\u253c]+",
-      "name": "punctuation.border.asciidiagram"
+      "include": "#lines"
     },
     {
-      "match": "<[-]+>|<[-]+|[-]+>|[|^]|(?<!\\S)v(?!\\S)|\\+[-+]+",
-      "name": "keyword.connection.asciidiagram"
+      "include": "#connections"
     },
     {
       "match": "\\S",
       "name": "string.outside.asciidiagram"
     }
-  ]
+  ],
+  "repository": {
+    "lines": {
+      "patterns": [
+        {
+          "match": "[\\u2500-\\u257f]+",
+          "name": "punctuation.border.asciidiagram"
+        }
+      ]
+    },
+    "connections": {
+      "patterns": [
+        {
+          "match": "<[-]+>|<[-]+|[-]+>|[|^]|(?<!\\S)v(?!\\S)|\\+[-+]+|[←↑→↓↔↕]+",
+          "name": "keyword.connection.asciidiagram"
+        }
+      ]
+    }
+  }
 }

@@ -2,7 +2,7 @@
   "name": "asciidiagram-highlight",
   "displayName": "ASCII Diagram Highlight",
   "description": "Color diagram lines, inside text, and outside text in Markdown source.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "local",
   "engines": {
     "vscode": "^1.80.0"
